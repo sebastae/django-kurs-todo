@@ -10,11 +10,7 @@ from list.models import TodoItem
 
 def show(request):
     items = TodoItem.objects.all()
-    d = {
-        'head': "Head text",
-        'body': "Moar text"
-    }
-    return render(request, 'list/all.html', {'items': items, 'dict':d})
+    return render(request, 'list/all.html', {'items': items})
 
 def add(request):
     form = TodoItemForm()
