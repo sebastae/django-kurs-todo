@@ -1,0 +1,21 @@
+{% extends 'todo/base.html' %}
+{% block content %}
+
+    <div class="container">
+        <a href="{% url 'list:add' %}">New todo item</a>
+        <ul>
+            {% for item in items %}
+                <li>
+                    <a href="{% url 'list:toggle' item_id=item.id %}">
+                        {% if item.done %}
+                            Un-complete
+                        {% else %}
+                            Complete
+                        {% endif %}
+                    </a> {{ item.description }} {% if item.done %} [Done!] {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+{% endblock content %}
